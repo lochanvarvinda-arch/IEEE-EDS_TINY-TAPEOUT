@@ -1,9 +1,3 @@
-```verilog
-/*
- * Copyright (c) 2024 Your Name
- * SPDX-License-Identifier: Apache-2.0
- */
-
 `default_nettype none
 
 module tt_um_lochanvarvinda_arch (
@@ -33,4 +27,3 @@ module tt_um_lochanvarvinda_arch (
   wire _unused = &{ena, uio_in, 1'b0};
 
 endmodule
-```
