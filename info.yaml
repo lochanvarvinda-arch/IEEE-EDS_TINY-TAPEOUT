@@ -5,7 +5,7 @@ project:
   discord:      ""
   description:  "An 8-bit serial-in parallel-out shift register with reset and shift enable"
   language:     "Verilog"
-  clock_hz:     "5000"
+  clock_hz:     5000
 
   tiles: "1x1"
 
