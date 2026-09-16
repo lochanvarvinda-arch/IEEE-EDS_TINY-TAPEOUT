@@ -11,7 +11,7 @@ from cocotb.triggers import ClockCycles
 async def test_project(dut):
     dut._log.info("Start")
 
-    clock = Clock(dut.clk, 10, unit="us")
+    clock = Clock(dut.clk, 200, unit="us")
     cocotb.start_soon(clock.start())
 
     dut.ena.value = 1
