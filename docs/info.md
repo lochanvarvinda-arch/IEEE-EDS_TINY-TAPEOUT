@@ -1,20 +1,16 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
-
 ## How it works
 
-Explain how your project works
+This project implements an 8-bit serial-in, parallel-out shift register.
+On each rising edge of `clk`, if `rst_n` is low the register clears to zero.
+Otherwise, if `ui_in[1]` (SHIFT_EN) is high, the register shifts left by one bit,
+loading `ui_in[0]` (SERIAL_IN) into the least significant bit. The full 8-bit
+register value is continuously output on `uo_out`.
 
 ## How to test
 
-Explain how to use your project
-
-## External hardware
-
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+1. Assert `rst_n` low for at least one clock cycle to reset the register to 0.
+2. Release `rst_n` (set high).
+3. Set `ui_in[1]` = 1 to enable shifting, and drive `ui_in[0]` with the serial
+   bit you want to shift in.
+4. On each clock edge, `uo_out` will shift left, inserting `ui_in[0]` at bit 0.
+5. Set `ui_in[1]` = 0 to hold the current value without shifting.
